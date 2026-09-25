@@ -16,10 +16,18 @@ else:
     print(frame.shape)  # dimensions and color of image
 
     # Use selectROI to pick the box interactively
-    x, y, w, h = cv2.selectROI("Select region", frame)
+    x1, y1, w1, h1 = cv2.selectROI("Select region", frame)
     cv2.destroyWindow("Select region") #press any button
-    print(x, y, w, h)
+    print("Box1 Coordinates: ", x1, y1, w1, h1)
 
     # Now crop using those coordinates
-    crop = frame[y:y+h, x:x+w]
-    cv2.imwrite("crop_test.png", crop)
+    crop = frame[y1:y1+h1, x1:x1+w1]
+    cv2.imwrite("Box1.png", crop)
+
+    x2, y2, w2, h2 = cv2.selectROI("Select region", frame)
+    cv2.destroyWindow("Select region") #press any button
+    print("Box2 Coordinates: ", x2, y2, w2, h2)
+    
+    # Now crop using those coordinates
+    crop = frame[y2:y2+h2, x2:x2+w2]
+    cv2.imwrite("Box2.png", crop)
