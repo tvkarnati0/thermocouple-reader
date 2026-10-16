@@ -1,3 +1,7 @@
 videos/
 *.mov
 *.mp4
+
+# Digit training data and test set
+digit_dataset/
+test_set/
